@@ -1,14 +1,18 @@
 import React from 'react'
-
-import {Header} from './components/index.js'
+import SampleComponent from './components/Sample.jsx'
+import {Header,ThemeToggler} from './components/index.js'
 import { useSelector } from 'react-redux'
 
 function App() {
   const theme = useSelector((state) => state.theme)
   return (
     <>
-    <div className={theme === 'light' ? 'bg-white text-black' : 'bg-slate-900 text-white'}  style={{minHeight:'100vh'}}>
-      <Header />
+    <div className={`${theme === 'dark' ? 'dark' : ''}`}  style={{minHeight:'100vh'}}>
+      <div className="bg-white dark:bg-gray-900 text-black dark:text-white">
+      {/* <Header /> */}
+        <ThemeToggler />
+      <SampleComponent />
+      </div>
     </div>
       
     </>
