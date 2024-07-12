@@ -6,7 +6,7 @@ import {Logo , ThemeToggler,} from '../index.js'
 import { useSelector } from 'react-redux'
 function Header() {
   const navigate = useNavigate()
-  const authStatus = true
+  const authStatus = useSelector((state) => state.auth.status)  
   const navItems = [
     {
       name: 'Home',
@@ -16,17 +16,17 @@ function Header() {
     {
       name: "About",
       slug: "/about",
-      active: authStatus,
+      active: true,
     },
     {
       name: "Products",
       slug: "/products",
-      active: authStatus,
+      active: true,
     },
     {
       name: "Contact",
       slug: "/contact",
-      active: authStatus,
+      active: true,
     },
     {
       name: "Login",
@@ -68,6 +68,7 @@ function Header() {
             {authStatus && (
               <li className='inline-block px-3 py-2 duration-200 text-gray-400 hover:text-red-400'>
                 <button>Logout</button>
+                {console.log("Logout")}
               </li>
             )}
           </ul>
