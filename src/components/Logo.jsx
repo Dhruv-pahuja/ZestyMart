@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import darkLogo from '../assets/zestymart-high-resolution-logo-white-transparent.png';
-import lightLogo from '../assets/zestymart-high-resolution-logo-white-transparent.png';
+import lightLogo from '../assets/zestymart-high-resolution-logo-transparent.png';
 
 const Logo = () => {
   const theme = useSelector((state) => state.theme);
@@ -9,9 +9,9 @@ const Logo = () => {
 
   return (
     <img
-      src={theme === 'light' ? lightLogo : darkLogo}
+      src={theme === 'light' ? darkLogo : darkLogo}
       alt="Logo"
-      style={{ width: '150px', height: 'auto' }} // adjust the size as needed
+      style={{ width: '120px', height: 'auto' }} // adjust the size as needed
     />
   );
 };
