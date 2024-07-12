@@ -5,7 +5,6 @@ import lightLogo from '../assets/zestymart-high-resolution-logo-transparent.png'
 
 const Logo = () => {
   const theme = useSelector((state) => state.theme);
-  console.log(theme);
 
   return (
     <img

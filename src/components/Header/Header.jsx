@@ -15,7 +15,7 @@ function Header() {
     }, 
     {
       name: "About",
-      slug: "/add-post",
+      slug: "/about",
       active: authStatus,
     },
     {
@@ -25,7 +25,7 @@ function Header() {
     },
     {
       name: "Contact",
-      slug: "/add-post",
+      slug: "/contact",
       active: authStatus,
     },
     {
