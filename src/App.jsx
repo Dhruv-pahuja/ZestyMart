@@ -1,5 +1,4 @@
 import React from 'react'
-import { Home } from './pages/index'
 import { useSelector } from 'react-redux'
 import { Outlet } from 'react-router'
 import { Header,Footer } from './components'
@@ -7,18 +6,15 @@ import { Header,Footer } from './components'
 function App() {
   const theme = useSelector((state) => state.theme)
   return (
-    <>
-    <div className={`${theme === 'dark' ? 'dark' : ''}`}  style={{minHeight:'100vh'}}>
-      <div className="bg-white dark:bg-gray-900 text-black dark:text-white">
-        <Header />
-        <main>
-          <Outlet/>
-        </main>
-        <Footer/>
-      </div>
+    <div className={`${theme === 'dark' ? 'dark' : ''}`} style={{ minHeight: '100vh' }}>
+    <div className="flex flex-col min-h-screen bg-white dark:bg-[#111827] text-black dark:text-white">
+      <Header />
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+      <Footer />
     </div>
-      
-    </>
+  </div>
   )
 }
 

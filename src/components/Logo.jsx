@@ -8,7 +8,7 @@ const Logo = () => {
 
   return (
     <img
-      src={theme === 'light' ? darkLogo : darkLogo}
+      src={theme === 'light' ? lightLogo : darkLogo}
       alt="Logo"
       style={{ width: '120px', height: 'auto' }} 
     />

@@ -51,7 +51,7 @@ function Header() {
 
 
   return (
-    <header className='py-3 shadow bg-[#023b6d] dark:bg-slate-700 text-white'>
+    <header className='sticky top-0 py-3 shadow bg-white dark:bg-[#1f2937] text-gray-600 mb-4 rounded-b-lg'>
       <Container>
         <nav className='flex items-center justify-between'>
           <div className='mr-4'>
@@ -61,13 +61,13 @@ function Header() {
           </div>
           <div className='flex items-center md:hidden'>
             <ThemeToggler/>
-            <button onClick={handleMenuToggle} className='ml-4'>
+            <button onClick={handleMenuToggle} className='ml-4 dark:text-white text-dark'>
               {isMenuOpen? '': <FaBars className='text-xl'/>}
             </button>
           </div>
           <ul className={`flex-col md:flex md:flex-row ml-auto ${isMenuOpen?'flex':'hidden'} md:block`}>
           <li className='md:hidden'>
-          <button onClick={handleMenuToggle} className='ml-4'>
+          <button onClick={handleMenuToggle} className='ml-4 dark:text-white text-dark'>
               {isMenuOpen? <FaTimes className='text-xl'/> : <FaBars className='text-xl'/>}
             </button>
           </li>
@@ -82,7 +82,7 @@ function Header() {
                   setIsMenuOpen(false)
                   navigate(item.slug)
                 }}
-                className='inline-bock px-3 py-2 text-gray-400 duration-200 hover:text-white rounded-full'
+                className='inline-bock px-3 py-2 md:text-gray-500 text-black dark:text-white duration-200 hover:text-blue-500 dark:hover:text-white rounded-full'
                 >{item.name}</button>
               </li>
             ) : null
