@@ -65,12 +65,14 @@ function Header() {
               {isMenuOpen? '': <FaBars className='text-xl'/>}
             </button>
           </div>
-
           <ul className={`flex-col md:flex md:flex-row ml-auto ${isMenuOpen?'flex':'hidden'} md:block`}>
-          <li>
+          <li className='md:hidden'>
           <button onClick={handleMenuToggle} className='ml-4'>
               {isMenuOpen? <FaTimes className='text-xl'/> : <FaBars className='text-xl'/>}
             </button>
+          </li>
+          <li className='hidden md:block py-3 px-2'>
+            <ThemeToggler/>
           </li>
             {navItems.map((item) => 
             item.active ? (
