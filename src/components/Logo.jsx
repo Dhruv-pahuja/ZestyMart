@@ -10,7 +10,7 @@ const Logo = () => {
     <img
       src={theme === 'light' ? darkLogo : darkLogo}
       alt="Logo"
-      style={{ width: '120px', height: 'auto' }} // adjust the size as needed
+      style={{ width: '120px', height: 'auto' }} 
     />
   );
 };
