@@ -27,7 +27,7 @@ const Footer = () => {
         </div>
         <hr className="my-6 border-gray-300 sm:mx-auto dark:border-gray-300 lg:my-8" />
         <span className="block text-sm text-gray-700  sm:text-center dark:text-gray-400">
-          © 2024 <a href="https://github.com/Dhruv-pahuja/ZestyMart" className="hover:underline text-gray-900 dark:text-gray-300">Dhruv Pahuja</a>. All Rights Reserved.
+          © 2024 <a href="https://github.com/Dhruv-pahuja/ZestyMart" target='blank' className="hover:underline text-gray-900 dark:text-gray-300">Dhruv Pahuja</a>. All Rights Reserved.
         </span>
       </div>
     </footer>
