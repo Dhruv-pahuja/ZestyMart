@@ -1,5 +1,5 @@
 import React from 'react';
-import {HeroSection} from "../components/index.js";
+import {HeroSection,} from "../components/index.js";
 
 const Home = () => {
     return (

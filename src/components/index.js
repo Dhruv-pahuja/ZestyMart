@@ -7,4 +7,4 @@ import AuthLayout from "./AuthLayout";
 import HeroSection from "./HeroSection";
 
 
-export { Container, Header, Logo, ThemeToggler,Footer, AuthLayout,HeroSection};
+export { Container, Header, Logo, ThemeToggler,Footer, AuthLayout,HeroSection}
