@@ -3,9 +3,10 @@ import {Container} from '../index'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import {Logo , ThemeToggler,} from '../index.js'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import {FaBars,FaTimes} from 'react-icons/fa'
-
+import authService from '../../appwrite/auth.js'
+import {login,logout} from "../../store/authSlice.js"
 function Header() {
 
   const navigate = useNavigate()
@@ -15,6 +16,14 @@ function Header() {
   const handleMenuToggle = ()=>{
     setIsMenuOpen(!isMenuOpen)
   }
+  
+  const dispatch = useDispatch();
+  const HandleLogout = () =>{
+    authService.logout()
+    .then(()=>{
+      dispatch(logout())
+    })
+  } 
 
   const navItems = [
     {
@@ -92,7 +101,7 @@ function Header() {
                  <button
                   onClick={() => {
                     setIsMenuOpen(false);
-                    // Logout functionality here
+                    HandleLogout();
                   }}
                   className='inline-block px-3 py-2 text-gray-400 duration-200 hover:text-red-400'
                 > Logout </button>
