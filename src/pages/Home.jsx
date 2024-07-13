@@ -1,10 +1,11 @@
 import React from 'react';
-import {HeroSection,} from "../components/index.js";
+import {HeroSection,Card} from "../components/index.js";
 
 const Home = () => {
     return (
         <div>
             <HeroSection />
+            {/* <Card/> */}
         </div>
     );
 }

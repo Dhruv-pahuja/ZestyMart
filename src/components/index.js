@@ -5,6 +5,6 @@ import ThemeToggler from "./ThemeToggler";
 import Footer from "./Footer/Footer";
 import AuthLayout from "./AuthLayout";
 import HeroSection from "./HeroSection";
+import Card from "./Card";
 
-
-export { Container, Header, Logo, ThemeToggler,Footer, AuthLayout,HeroSection}
+export { Container, Header, Logo, ThemeToggler,Footer, AuthLayout,HeroSection,Card}
