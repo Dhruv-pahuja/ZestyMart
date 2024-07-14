@@ -42,7 +42,7 @@ function Header() {
       active: true,
     },
     {
-      name: "Contact",
+      name: "Contact-us",
       slug: "/contact",
       active: true,
     },
@@ -80,7 +80,7 @@ function Header() {
               {isMenuOpen? <FaTimes className='text-xl'/> : <FaBars className='text-xl'/>}
             </button>
           </li>
-          <li className='hidden md:block py-3 px-2'>
+          <li className='hidden md:block py-2 px-2'>
             <ThemeToggler/>
           </li>
             {navItems.map((item) => 
@@ -91,7 +91,7 @@ function Header() {
                   setIsMenuOpen(false)
                   navigate(item.slug)
                 }}
-                className='inline-bock px-3 py-2 md:text-gray-500 text-black dark:text-white duration-200 hover:text-blue-500 dark:hover:text-white rounded-full'
+                className='inline-bock px-3 py-1 md:text-black-500 border bg-primary-50 hover:bg-primary-100 dark:bg-slate-800 text-black dark:text-cyan-400 shadow-blue-300/50 dark:hover:bg-slate-900 duration-200 hover:text-blue-500 dark:hover:text-white rounded-full'
                 >{item.name}</button>
               </li>
             ) : null
@@ -103,7 +103,7 @@ function Header() {
                     setIsMenuOpen(false);
                     HandleLogout();
                   }}
-                  className='inline-block px-3 py-2 text-gray-400 duration-200 hover:text-red-400'
+                  className='inline-bock px-3 py-1 md:text-black-500 border bg-primary-50 hover:bg-red-100 dark:bg-slate-800 text-black dark:text-cyan-400 shadow-blue-300/50 dark:hover:bg-slate-900 duration-200 hover:text-red-500 dark:hover:text-red-500 rounded-full'
                 > Logout </button>
               </li>
             )}
