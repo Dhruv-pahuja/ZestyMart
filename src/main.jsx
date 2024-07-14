@@ -5,7 +5,7 @@ import './index.css'
 import {Provider} from 'react-redux'
 import store from './store/store.js'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import {AuthLayout} from "./components/index.js"
+import {AuthLayout,AuthCallback} from "./components/index.js"
 import {Home, About, Contact, LoginPage,SignupPage, ProductPage} from './pages/index.js'
 const router = createBrowserRouter([
   {
@@ -57,6 +57,10 @@ const router = createBrowserRouter([
             <ProductPage/>
           </AuthLayout>
         )
+      },
+      {
+        path: "/auth/callback",
+        element: <AuthCallback />
       }
     ]
   }
