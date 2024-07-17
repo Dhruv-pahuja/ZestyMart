@@ -32,11 +32,6 @@ function Header() {
       active: true
     }, 
     {
-      name: "About",
-      slug: "/about",
-      active: true,
-    },
-    {
       name: "Products",
       slug: "/products",
       active: true,
@@ -44,6 +39,11 @@ function Header() {
     {
       name: "Contact-us",
       slug: "/contact",
+      active: true,
+    },
+    {
+      name: "About",
+      slug: "/about",
       active: true,
     },
     {

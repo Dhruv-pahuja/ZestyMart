@@ -26,6 +26,7 @@ const Login = () => {
       const sessionData = await authService.login(formData);
       if (sessionData) {
         const currentUser = await authService.getCurrentUser();
+        console.log("currentUser", currentUser);
         if (currentUser) dispatch(authLogin({ userData: currentUser }));
         navigate("/");
         console.log("User logged in successfully", currentUser);
@@ -39,8 +40,11 @@ const Login = () => {
     try {
       await authService.SigninWithGoogle();
       const currentUser = await authService.getCurrentUser();
-      if (currentUser) dispatch(authLogin({ userData: currentUser }));
-      navigate("/");
+      console.log("currentUser:", currentUser);
+      if (currentUser){
+        console.log(currentUser);
+         dispatch(authLogin({ userData: currentUser }));
+      navigate("/");}
     } catch (error) {
       setError(error.message);
     }

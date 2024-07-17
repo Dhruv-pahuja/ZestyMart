@@ -7,7 +7,7 @@ function App() {
   const theme = useSelector((state) => state.theme)
   return (
     <div className={`${theme === 'dark' ? 'dark' : ''}`} style={{ minHeight: '100vh' }}>
-    <div className="flex flex-col min-h-screen bg-white dark:bg-[#111827] text-black dark:text-white">
+    <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-[#111827] text-black dark:text-white">
       <Header />
       <main className="flex-grow">
         <Outlet />
