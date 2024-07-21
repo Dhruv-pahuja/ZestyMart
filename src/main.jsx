@@ -18,12 +18,7 @@ const router = createBrowserRouter([
       },
       {
         path : "/about",
-        element : (
-          <AuthLayout authentication={false}>
-            {" "}
-            <About/>
-          </AuthLayout>
-        )
+        element : <About/>
       },
       {
         path : "/contact",
@@ -48,9 +43,7 @@ const router = createBrowserRouter([
       {
         path : "/products",
         element : (
-          <AuthLayout authentication={false}>
-            <ProductPage/>
-          </AuthLayout>
+          <ProductPage/>
         )
       },
       {
