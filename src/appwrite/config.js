@@ -1,6 +1,6 @@
 import conf from '../conf/conf.js';
-import { Client, Databases,ID, } from "appwrite";
-import authService from "./auth.js"
+import { Client, Databases, ID } from "appwrite";
+import authService from "./auth.js";
 export class AppwriteService {
     client = new Client();
     databases;
@@ -11,24 +11,29 @@ export class AppwriteService {
             .setProject(conf.appwriteProjectId);
         this.databases = new Databases(this.client);
     }
-    
-    async submitContact({ name, email, message,}) {
-        let userId = authService.getCurrentUser() ? authService.getCurrentUser().id : ID.unique();
+
+    async submitContact({ name, email, message }) {
+        const uniqueID = ID.unique();
+        let userId = uniqueID;
         try {
+            const currentUser = await authService.getCurrentUser();
+            if (currentUser) {
+                userId = currentUser.$id;
+            }
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,   
                 conf.appwriteCollectionId, 
-                userId,                    
+                uniqueID,                    
                 { 
-                    "Full-Name":name,
-                    "Email":email,
-                    "contact-message":message,
-                    "UserId":userId
+                    "Full-Name": name,
+                    "Email": email,
+                    "contact-message": message,
+                    "UserId": userId
                 }
             );
         } catch (error) {
             console.error("Appwrite service :: submitContact :: error", error);
-            throw error; 
+            throw error;
         }
     }
 }

@@ -16,8 +16,6 @@ export class AuthService {
         try {
             const userAccount = await this.account.create(ID.unique(), email, password,name);
             if (userAccount) {
-                // call another method
-                await this.account.updateName(name);
                 return this.login({email, password});
             } else {
                 return userAccount;
@@ -29,9 +27,7 @@ export class AuthService {
 
     async login({email, password}) {
         try {
-            const session  = await this.account.createEmailPasswordSession(email, password);
-            localStorage.setItem("appwrite-user-session", JSON.stringify(session));
-            return session;
+            return this.account.createEmailPasswordSession(email, password);
         } catch (error) {
             throw error;
         }
@@ -46,17 +42,6 @@ export class AuthService {
         return null;
     }
 
-    // async restoreSession() {
-    //     const sessionInfo = localStorage.getItem('userSession');
-    //     if (sessionInfo) {
-    //         const session = JSON.parse(sessionInfo);
-    //         // Optionally validate the session with the backend here
-    //         // If the session is valid, set it as the current session
-    //         // This step depends on how your authentication system is designed
-    //         return session;
-    //     }
-    //     return null;
-    // }
 
     async logout() {
         try {
