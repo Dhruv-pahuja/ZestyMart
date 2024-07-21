@@ -10,5 +10,6 @@ import Signup from "./Signup"
 import Login from "./Login"
 import AuthCallback from "./AuthCallback";
 import Contact from "./ContactComponent";
+import AboutComponent from "./AboutComponent";
 
-export { Container, Header, Logo, ThemeToggler,Footer, AuthLayout,HeroSection,Card,Signup,Login ,AuthCallback,Contact};
+export { Container, AboutComponent,Header, Logo, ThemeToggler,Footer, AuthLayout,HeroSection,Card,Signup,Login ,AuthCallback,Contact};
