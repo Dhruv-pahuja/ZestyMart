@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import appwriteService from '../appwrite/config';
-import Logo from '../components/Logo';  
+import {Loader,Logo} from "../components/index"
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -11,7 +11,7 @@ const Contact = () => {
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
-    const [loading, setLoading] = useState(false);  
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,13 +22,13 @@ const Contact = () => {
         e.preventDefault();
         setError('');
         setSuccess('');
-        setLoading(true);  
+        setLoading(true);
 
         const { name, email, message } = formData;
 
         if (!name || !email || !message) {
             setError('All fields are required');
-            setLoading(false);  
+            setLoading(false);
             return;
         }
 
@@ -40,7 +40,7 @@ const Contact = () => {
             console.error("Contact Component :: handleSubmit :: error", error);
             setError('Failed to send message. Please try again.');
         } finally {
-            setLoading(false);  
+            setLoading(false);
         }
     };
 
@@ -49,21 +49,18 @@ const Contact = () => {
             const timer = setTimeout(() => {
                 setSuccess('');
                 setError('');
-            }, 6000); 
+            }, 6000);
 
-            return () => clearTimeout(timer); 
+            return () => clearTimeout(timer);
         }
     }, [success, error]);
 
     return (
         <div className='flex flex-col items-center min-h-screen dark:bg-gray-900 bg-gray-100 text-black dark:text-white p-4'>
             <div className="w-full max-w-4xl bg-white dark:bg-gray-800 shadow-md rounded-lg p-8 relative">
-                <Logo className="mx-auto mb-6 w-32 h-8" />
                 <h2 className="text-center text-2xl font-semibold mb-6">Contact Us</h2>
 
-                {loading && (
-                    <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 animate-pulse"></div>
-                )}  
+                {loading && <Loader />}  {/* Use the Loader component */}
 
                 {error && <div className="text-red-500 text-center mb-4">{error}</div>}
                 {success && <div className="text-green-500 text-center mb-4">{success}</div>}
@@ -131,7 +128,7 @@ const Contact = () => {
                     <div className="border-l border-gray-300 dark:border-gray-600 h-full"></div>
                 </div>
 
-                <Logo className="w-32 h-8 my-4 md:my-0" /> {/* Add the Logo component with some margin */}
+                <Logo className="w-32 h-8 my-4 md:my-0" />
             </div>
         </div>
     );

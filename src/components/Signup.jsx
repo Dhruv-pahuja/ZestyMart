@@ -4,11 +4,13 @@ import { login as authLogin } from '../store/authSlice';
 import authService from "../appwrite/auth";
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import Loader from './Loader';
 
 const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false); // State to manage loader visibility
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -23,6 +25,7 @@ const Signup = () => {
   const create = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true); // Show loader
     try {
       const userData = await authService.createAccount(formData);
       if (userData) {
@@ -33,10 +36,13 @@ const Signup = () => {
       }
     } catch (error) {
       setError(error.message);
+    } finally {
+      setLoading(false); // Hide loader
     }
   };
 
   const signInWithGoogle = async () => {
+    setLoading(true); // Show loader
     try {
       await authService.SigninWithGoogle();
       const currentUser = await authService.getCurrentUser();
@@ -44,12 +50,15 @@ const Signup = () => {
       navigate("/");
     } catch (error) {
       setError(error.message);
+    } finally {
+      setLoading(false); // Hide loader
     }
   };
 
   return (
     <div className='flex items-center justify-center min-h-screen dark:bg-gray-900 dark:text-white bg-gray-100 text-black'>
-      <div className="max-w-md w-full bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
+      <div className="relative max-w-md w-full bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
+        {loading && <Loader />} {/* Conditionally render Loader */}
         <h2 className="text-center text-2xl font-semibold mb-6">Sign Up</h2>
         <button
           onClick={signInWithGoogle}
