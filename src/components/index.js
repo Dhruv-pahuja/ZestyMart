@@ -13,4 +13,6 @@ import Contact from "./ContactComponent";
 import AboutComponent from "./AboutComponent";
 import Loader from "./Loader";
 import CardComponent from "./CardComponent";
-export { Container, AboutComponent,Header, Logo,CardComponent, ThemeToggler,Footer,Loader, AuthLayout,HeroSection,Card,Signup,Login ,AuthCallback,Contact};
+import UserMenu from "./UserMenu/UserMenu";
+
+export { Container, AboutComponent,Header, Logo,CardComponent, ThemeToggler,Footer,Loader, AuthLayout,HeroSection,Card,Signup,Login ,AuthCallback,Contact,UserMenu};
