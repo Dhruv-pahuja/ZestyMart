@@ -23,7 +23,7 @@ const HeroSection = () => {
           </Link>
         </div>
         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex justify-center">
-          <img src="./src\assets\OIG4.9hrGYxJ2KuVU..jpeg" alt="ZestyMart products" className="rounded-lg shadow-lg object-cover w-3/4 max-w-xs" />
+          <img src="src\assets\OIG4.9hrGYxJ2KuVU..jpeg" alt="ZestyMart products" className="rounded-lg shadow-lg object-cover w-3/4 max-w-xs" />
         </div>
       </div>
     </section>
